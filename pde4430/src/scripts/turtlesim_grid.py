@@ -48,7 +48,7 @@ class TurtleBot():
 
     def getDistance(self, goal_pose):
         # euclidean distance between current pose and the goal
-        return sqrt(pow((goal_pose.x - self.pose.x),2) + pow((goal_pose.y - self.pose.y), 2))
+        return sqrt(pow((goal_pose.x - self.pose.x),2) + pow((goal_pose.y - self.pose.y), 2))# it returtn the distance between current pose and requested pose
 
     def steering_angle(self, goal_pose):
         # return steering angle
