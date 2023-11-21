@@ -36,7 +36,7 @@ class TurtleBot():
         return angle_in_degrees*pi/180
 
     def setDesiredOrientation(self, desired_angle_radians):
-        # defines the desired orientation, and set true or false to clockwise
+        # defines the desired orientation, atrue- clock wise ,false anticlockwise
         relative_angle_radians = desired_angle_radians - self.pose.theta
         if(relative_angle_radians < 0):
             clockwise =  True
