@@ -1,0 +1,11 @@
+<launch>
+<node pkg="turtlesim" type="turtlesim_node" name="sim" respawn="true" output="screen"/>
+ 
+<node pkg="turtlesim" type="turtle_teleop_key" name="teleop1" args="turtle1" output="screen"/>
+<node pkg="turtlesim" type="turtle_teleop_key" name="teleop2" args="turtle2" output="screen"/>
+<node pkg="pde4430" type="walldetect.py" name="wall_detector"/>
+<node pkg="pde4430" type="Talker.py" name="turtle_teleop" output="screen"/>
+<param name="rosdistro" value="kinetic"/>
+<param name="turtlesim_node/sim_time" value="true"/>
+
+</launch>
