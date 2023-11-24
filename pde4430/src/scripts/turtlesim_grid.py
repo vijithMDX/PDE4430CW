@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 
 
@@ -24,7 +24,7 @@ class GridClean_TurtleBot():
         self.rate = rospy.Rate(10)
         self.vel_msg = Twist()
 
-        print('****** Let start******' )
+        print('****** Starting ***' )
     
 
     def poseCallback(self, data):
@@ -238,7 +238,7 @@ class GridClean_TurtleBot():
 
         #rospy.spin()
 
-
+#use only if running individually - initiate node first
 if __name__ == "__main__":
     try:
         x = GridClean_TurtleBot("turtle1")
