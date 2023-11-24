@@ -6,10 +6,12 @@ from turtlesim.msg import Pose
 import math
 
 class MoveTurtleToPosition:
-    def __init__(self):
-        rospy.init_node('move_turtle_to_position', anonymous=True)
-        self.velocity_publisher = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
-        self.pose_subscriber = rospy.Subscriber('/turtle1/pose', Pose, self.update_pose)
+    def __init__(self,turtleName):
+        self.turtle=turtleName
+        #un-comment rospy.init -if your running independandly this code. currently integrated with remote UI
+        #rospy.init_node('move_turtle_to_position', anonymous=True)
+        self.velocity_publisher = rospy.Publisher(f'/{self.turtle}/cmd_vel', Twist, queue_size=10)
+        self.pose_subscriber = rospy.Subscriber(f'/{self.turtle}/pose', Pose, self.update_pose)
         self.pose = Pose()
         self.rate = rospy.Rate(4)  # Rate in Hz
 
@@ -96,15 +98,20 @@ class MoveTurtleToPosition:
 
 if __name__ == '__main__':
     try:
-        move_turtle = MoveTurtleToPosition()
+        move_turtle = MoveTurtleToPosition("turtle1")
+        move_turtle2=MoveTurtleToPosition("turtle2")
+        move_turtle3=MoveTurtleToPosition("turtle3")
         
         print("Starting turtle")
 
         # Move to the initial position (1, 10)
         move_turtle.move_to_position(1, 10)
+        move_turtle2.move_to_position(10,1)
+        move_turtle3.move_to_position(1,1)
        
         
         move_turtle.spiralClean()
+        move_turtle2.spiralClean()
 
         if round(move_turtle.pose.x) == 1 and round(move_turtle.pose.y) == 10:
             print("Reached initial position (1, 10)")

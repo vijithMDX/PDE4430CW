@@ -9,14 +9,16 @@ from math import pow, atan2, sqrt
 pi =  3.1415926535897
 
 
-class TurtleBot():
+class GridClean_TurtleBot():
 
-    def __init__(self):
+    def __init__(self,turtle_name):
         # shere node is started
-        rospy.init_node('turtlebot_controller', anonymous=True)
-        self.velocity_publisher = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
+        self.turtle=turtle_name
+        #rospy.init_node('turtlebot_controller', anonymous=True)
+        self.velocity_publisher = rospy.Publisher(f'/{turtle_name}/cmd_vel', Twist, queue_size=10)
         # her subscriber is created
-        self.pose_subscriber = rospy.Subscriber('/turtle1/pose', Pose, self.poseCallback)
+        
+        self.pose_subscriber = rospy.Subscriber(f'/{turtle_name}/pose', Pose, self.poseCallback)
 
         self.pose = Pose()
         self.rate = rospy.Rate(10)
@@ -163,33 +165,83 @@ class TurtleBot():
         self.move(2,9,True)
         rospy.sleep(1)
         self.rotate(self.degree2radians(10),self.degree2radians(90), False)
+        print("1")
         rospy.sleep(1)
         self.move(2,9,True)
         rospy.sleep(1)
+        print("2")
         self.rotate(self.degree2radians(10),self.degree2radians(90), False)
         rospy.sleep(1)
         self.move(2,1,True)
+        print("3")
         rospy.sleep(1)
         self.rotate(self.degree2radians(30),self.degree2radians(90), False)
         rospy.sleep(1)
         self.move(2,9,True)
+        print("4")
         rospy.sleep(1)
         self.rotate(self.degree2radians(30),self.degree2radians(90), True)
         rospy.sleep(1)
         self.move(2,1,True)
+        
         rospy.sleep(1)
         self.rotate(self.degree2radians(30),self.degree2radians(90), True)
         rospy.sleep(1)
         self.move(2,9,True)
+        
+             
+        
+        self.rotate(self.degree2radians(10),self.degree2radians(90), False)
+        rospy.sleep(1)
+        self.move(2,1,True)
+        self.rotate(self.degree2radians(30),self.degree2radians(90), False)
+        rospy.sleep(1)
+        self.move(2,9,True)
+        self.rotate(self.degree2radians(30),self.degree2radians(90), True)
+        rospy.sleep(1)
+        self.move(2,1,True)
+        self.rotate(self.degree2radians(30),self.degree2radians(90), True)
+        rospy.sleep(1)
+        self.move(2,9,True)
+        self.rotate(self.degree2radians(10),self.degree2radians(90), False)
+        rospy.sleep(1)
+        self.move(2,1,True)
+        self.rotate(self.degree2radians(30),self.degree2radians(90), False)
+        rospy.sleep(1)
+        self.move(2,9,True)
+        self.rotate(self.degree2radians(30),self.degree2radians(90), True)
+        rospy.sleep(1)
+        self.move(2,1,True)
+        self.rotate(self.degree2radians(30),self.degree2radians(90), True)
+        rospy.sleep(1)
+        self.move(2,9,True)
+
+        self.rotate(self.degree2radians(10),self.degree2radians(90), False)
+        rospy.sleep(1)
+        self.move(2,1,True)
+        self.rotate(self.degree2radians(30),self.degree2radians(90), False)
+        rospy.sleep(1)
+        self.move(2,9,True)
+
+        self.rotate(self.degree2radians(30),self.degree2radians(90), True)
+        rospy.sleep(1)
+        self.move(2,1,True)
+        self.rotate(self.degree2radians(30),self.degree2radians(90), True)
+        rospy.sleep(1)
+        self.move(2,9,True)
+
+
+
+
         print("Finished!!")
 
 
-        rospy.spin()
+        #rospy.spin()
 
 
 if __name__ == "__main__":
     try:
-        x = TurtleBot()
+        x = GridClean_TurtleBot("turtle1")
         x.gridClean()
     except rospy.ROSInterruptException:
          pass
