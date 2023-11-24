@@ -8,6 +8,7 @@ from geometry_msgs.msg import Twist
 from tkinter import Tk, Canvas, Frame, Button,Label,Text
 from move import MoveTurtleToPosition
 from turtlesim_grid import GridClean_TurtleBot
+from walldetect import wall_detector
 import asyncio
 
 
@@ -26,6 +27,10 @@ class TeleopGUI:
         self.create_widgets()
         self.setup_aeroKeyOperation()
         self.printHeader()
+        self.checkWalldetection(self.turtle_name)
+
+    def checkWalldetection(self,turtle) :
+        chcekwallstatus=wall_detector(turtle)   
     def printHeader(self):
         print ("             ")
         print("\n hello folks")
@@ -111,6 +116,8 @@ class TeleopGUI:
         self._x=self.x_text.get("1.0")
         self._y=self.y_text.get("1.0")
         print (f"{self.x_text} and {self.y_text}")
+        
+       
 
 
 

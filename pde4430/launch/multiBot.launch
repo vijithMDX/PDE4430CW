@@ -6,7 +6,7 @@
     <node pkg="rosservice" type="rosservice" name="spawn_sec_turtle" args="call /spawn '{x: 2.0, y: 2.0, theta: 0.0, name: turtle2}'" output="screen"/>
     <node pkg="rosservice" type="rosservice" name="spawn_third" args="call /spawn '{x: 5.0, y: 5.0, theta: 0.0, name: turtle3}'" output="screen"/>
     
-    <node pkg="pde4430" type="walldetect.py" name="wall_detector"/>
+   
     <node pkg="pde4430" type="RemoteUI.py" name="turtle_teleop" output="screen"/>
 
     
