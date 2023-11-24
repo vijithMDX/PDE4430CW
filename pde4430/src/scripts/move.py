@@ -102,17 +102,14 @@ if __name__ == '__main__':
 
         # Move to the initial position (1, 10)
         move_turtle.move_to_position(1, 10)
-        #move_turtle.go_to_goal(1,10)
+       
         
-        #move_turtle.spiralClean()
+        move_turtle.spiralClean()
 
         if round(move_turtle.pose.x) == 1 and round(move_turtle.pose.y) == 10:
             print("Reached initial position (1, 10)")
 
-            while True:
-                #move_turtle.clean_x_direction()
-                #move_turtle.clean_y_positions()
-                move_turtle.gridClean()
+           
 
         else:
             print(move_turtle.pose.x, "", move_turtle.pose.y)
