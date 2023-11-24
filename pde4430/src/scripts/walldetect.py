@@ -12,8 +12,7 @@ class wall_detector:
     def callback(self,data):
         if data.x>10 or data.x<1 or data.y>10 or data.y<1:
             print("crash detected")
-        else :
-            print ("Good to go")
+       
             
     
         #rospy.init_node("wall_detector",anonymous=False)
